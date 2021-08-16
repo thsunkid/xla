@@ -661,8 +661,7 @@ xla::XlaOp XlaHelpers::PromotedLogicalBinaryOp(
 }
 
 xla::XlaOp XlaHelpers::PromotedLogicalUnaryOp(
-    xla::XlaOp op,
-    const std::function<xla::XlaOp(xla::XlaOp)>& unary_op) {
+    xla::XlaOp op, const std::function<xla::XlaOp(xla::XlaOp)>& unary_op) {
   // XLA only supports bitwise_not so we need to cast inputs to
   // PRED first.
   op = xla::ConvertElementType(op, xla::PrimitiveType::PRED);

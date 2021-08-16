@@ -345,8 +345,7 @@ class XlaHelpers {
       const std::function<xla::XlaOp(xla::XlaOp, xla::XlaOp)>& bin_op);
 
   static xla::XlaOp PromotedLogicalUnaryOp(
-      xla::XlaOp op,
-      const std::function<xla::XlaOp(xla::XlaOp)>& unary_op);
+      xla::XlaOp op, const std::function<xla::XlaOp(xla::XlaOp)>& unary_op);
 
   template <typename T>
   static xla::Literal Range(T start, T end, T step) {
