@@ -793,9 +793,23 @@ XLATensor XLATensor::binary_cross_entropy_backward(const XLATensor& grad_output,
       GetOptionalIrValue(weight), GetXlaReductionMode(reduction)));
 }
 
+void XLATensor::logical_not_out(XLATensor& out, const XLATensor& input) {
+  out.SetIrValue(ir::ops::LogicalNot(input.GetIrValue()));
+}
+
+void XLATensor::logical_xor_out(XLATensor& out, const XLATensor& input,
+                                const XLATensor& other) {
+  out.SetIrValue(ir::ops::LogicalXor(input.GetIrValue(), other.GetIrValue()));
+}
+
 void XLATensor::logical_and_out(XLATensor& out, const XLATensor& input,
                                 const XLATensor& other) {
   out.SetIrValue(ir::ops::LogicalAnd(input.GetIrValue(), other.GetIrValue()));
+}
+
+void XLATensor::logical_or_out(XLATensor& out, const XLATensor& input,
+                               const XLATensor& other) {
+  out.SetIrValue(ir::ops::LogicalOr(input.GetIrValue(), other.GetIrValue()));
 }
 
 XLATensor XLATensor::bitwise_and(const XLATensor& input,

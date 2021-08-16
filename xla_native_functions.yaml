@@ -316,6 +316,9 @@ supported:
   - ger
   - lerp.Scalar
   - lerp.Tensor
+  - logical_not.out
+  - logical_xor.out
+  - logical_or.out
   - logical_and.out
 autograd:
   - max_pool2d
